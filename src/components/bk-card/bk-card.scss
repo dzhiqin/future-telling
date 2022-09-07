@@ -1,0 +1,10 @@
+.bk-card{
+  border-radius: 15px;
+  border: 1px solid #bbb;
+  box-sizing: border-box;
+  &-header{
+    text-align: center;
+    border-bottom: 1px solid #bbb;
+    line-height: 2em;
+  }
+}

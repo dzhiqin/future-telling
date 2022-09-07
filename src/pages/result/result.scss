@@ -1,0 +1,64 @@
+.result{
+  padding: 20px;
+  &-wrap {
+    padding: 40px 20px;
+    font-weight: 300;
+    
+
+  }
+  &-card{
+    border-radius: 12px;
+    display: flex;
+    padding: 20px;
+
+    &-info{
+      margin-left: 20px;
+      // flex: 1;
+    }
+  }
+
+  &-desc{
+    margin-top: 40px;
+    font-size: 28px;
+    // padding: 20px;
+
+    &-title{
+      border-right: 1px solid #bbb;
+    }
+    &-title,
+    &-info{
+      line-height: 70px;
+      text-align: center;
+      border-bottom: 1px solid #bbb;
+    }
+  }
+  &-detail {
+    margin-top: 40px;
+    display: flex;
+    &-column {
+      flex: 1;
+      text-align: center;
+      border-right: 1px solid #bbb;
+    }
+    &-head{
+      height: 80px;
+      border-bottom: 1px solid #bbb;
+    }
+    &-subHead,
+    &-item{
+      height: 120px;
+      border-bottom: 1px solid #bbb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &-item{
+      font-weight: 500;
+    }
+   
+  }
+}
+.future-panel,
+.history-panel{
+  margin-top: 40px;
+}
