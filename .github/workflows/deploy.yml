@@ -35,12 +35,12 @@ jobs:
           username: root
           password: ${{ secrets.REMOTE_PASSWORD }}
           # 执行脚本
-          #script: |
-          #  ./deploy.sh
-          run: |
-            docker pull ${{ secrets.DOCKER_REPOSITORY }}
-            docker stop future-telling
-            docker rm future-telling
-            docker run --name future-telling -d -p 80:80 ${{ secrets.DOCKER_REPOSITORY }}
-            docker image prune -f
-            docker container prune -f
+          script: |
+           ./deploy.sh
+          # run: |
+          #   docker pull ${{ secrets.DOCKER_REPOSITORY }}
+          #   docker stop future-telling
+          #   docker rm future-telling
+          #   docker run --name future-telling -d -p 80:80 ${{ secrets.DOCKER_REPOSITORY }}
+          #   docker image prune -f
+          #   docker container prune -f
