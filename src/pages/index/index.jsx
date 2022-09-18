@@ -10,12 +10,15 @@ import genderSvg from '../../images/icons/gender.svg'
 import calenderSvg from '../../images/icons/calender.svg'
 import addressSvg from '../../images/icons/address.svg'
 import timeSvg from '../../images/icons/time.svg'
+import bannerPng from '../../images/yinyang.png'
 import './index.scss'
+
 
 export default class Index extends Component {
   constructor(props){
     super(props)
     this.state={
+      firstVisit: window.firstVisit,
       dateModalshow: false,
       name: '',
       gender: '男',
@@ -26,6 +29,10 @@ export default class Index extends Component {
     }
   }
   componentDidMount () {
+    setTimeout(() => {
+      window.firstVisit = false
+      this.setState({firstVisit: false})
+    }, 2000)
   }
   componentDidShow () { }
   componentDidHide () { }
@@ -76,6 +83,10 @@ export default class Index extends Component {
   render () {
     return (
       <View className='index'>
+        {
+          this.state.firstVisit &&
+          <Image src={bannerPng} className='index-banner'></Image>
+        }
         <View className='bk-header index-header'>
           <View className='index-header-title'>八字起盘</View>
         </View>

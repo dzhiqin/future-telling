@@ -5,7 +5,7 @@ import './app.scss'
 
 const globalEvent = new GlobalEventEmitter()
 window.globalEvent =  globalEvent
-
+window.firstVisit = true
 class App extends Component {
 
   componentDidMount () {

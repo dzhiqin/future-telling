@@ -17,7 +17,7 @@ export default class Welcome extends Component {
   }
   render () {
     return(
-      <View className='welcome'>
+      <View className='welcome' id='welcome'>
         <View className='loader'></View>
       </View>
     )
