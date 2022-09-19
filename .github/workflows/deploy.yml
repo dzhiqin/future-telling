@@ -2,15 +2,8 @@ name: CI/CD
 # 触发条件为 push
 on:
   push:
-    branches:
-      - main
-    # 修改文件范围, 不在范围内不触发
-    paths:
-      - '.github/workflows/**'
-    #   - '__test__/**'
-    #   - 'src/**'
     tags: 
-      - '*-prod'
+      - v*
 # 任务
 jobs:
   test:
