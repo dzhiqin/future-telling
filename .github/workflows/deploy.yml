@@ -10,7 +10,7 @@ on:
     #   - '__test__/**'
     #   - 'src/**'
     tags: 
-      - '*-prod'
+      - 'v*'
 # 任务
 jobs:
   test:
