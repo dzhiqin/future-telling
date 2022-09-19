@@ -3,9 +3,7 @@ name: CI/CD
 on:
   push:
     tags: 
-      - "v*"
-    branches: 
-      - main
+      - v1.*
 # 任务
 jobs:
   test:
