@@ -9,6 +9,8 @@ on:
       - '.github/workflows/**'
     #   - '__test__/**'
     #   - 'src/**'
+    tags: 
+      - '*-prod'
 # 任务
 jobs:
   test:
