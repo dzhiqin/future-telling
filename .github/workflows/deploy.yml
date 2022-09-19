@@ -3,7 +3,7 @@ name: CI/CD
 on:
   push:
     tags: 
-      - v*
+      - "v*"
       
 # 任务
 jobs:
