@@ -6,7 +6,7 @@ on:
       - v*
 # 任务
 jobs:
-  test:
+  build:
     # 运行的环境
     runs-on: ubuntu-latest
     # 步骤
@@ -32,10 +32,4 @@ jobs:
           # 执行脚本
           script: |
            ./deploy.sh
-          # run: |
-          #   docker pull ${{ secrets.DOCKER_REPOSITORY }}
-          #   docker stop future-telling
-          #   docker rm future-telling
-          #   docker run --name future-telling -d -p 80:80 ${{ secrets.DOCKER_REPOSITORY }}
-          #   docker image prune -f
-          #   docker container prune -f
+          
