@@ -1,4 +1,4 @@
-name: CI/CD
+name: CD
 # 触发条件为 push
 on:
   push:
@@ -32,4 +32,3 @@ jobs:
           # 执行脚本
           script: |
            ./deploy.sh
-          

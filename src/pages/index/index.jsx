@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import Taro from '@tarojs/taro'
-import { View, Picker, Image, Input, Text } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import { View, Picker, Image, Text } from '@tarojs/components'
+import { AtButton, AtInput } from 'taro-ui'
 import DatePickerModal from '@/components/date-picker-modal/date-picker-modal'
 import { humanDate } from '@/utils/formatter'
 import AreaPicker from '@/components/area-picker/area-picker'
@@ -18,7 +18,8 @@ export default class Index extends Component {
   constructor(props){
     super(props)
     this.state={
-      firstVisit: window.firstVisit,
+      // firstVisit: window.firstVisit,
+      firstVisit: false,
       dateModalshow: false,
       name: '',
       gender: '男',
@@ -43,9 +44,8 @@ export default class Index extends Component {
     this.setState({dateModalshow: false,birthday: value})
   }
   handleChange = (stateName, event) => {
-    const {detail:{value}} = event
     this.setState({
-      [stateName]: value
+      [stateName]: event+''
     })
   }
   handleTimeChange = (event) => {
@@ -55,7 +55,6 @@ export default class Index extends Component {
     })
   }
   handleSelectArea = (event) => {
-    // this.handleChange('addressArray',event)
     this.setState({addressArray: event})
   }
   handleSubmit = () => {
@@ -87,29 +86,22 @@ export default class Index extends Component {
           this.state.firstVisit &&
           <Image src={bannerPng} className='index-banner'></Image>
         }
-        <View className='bk-header index-header'>
+        <View className='index-header'>
           <View className='index-header-title'>八字起盘</View>
         </View>
-        <View className='index-form bk-card-shadow'>
-          <View className='flex-between input-item'>
-            <View className='flex-between'>
-              <Image src={nameSvg} className='input-item-icon' />
-              <Text>姓名</Text>
-            </View>
-            <View className=''>
-              <Input
-                name='name'
-                type='text'
-                placeholder='请输入姓名'
-                style='text-align: end'
-                value={this.state.name}
-                maxlength={10}
-                focus
-                onChange={this.handleChange.bind(this,'name')}
-              ></Input>
-            </View>
+        <View className='index-form'>
+          <View className='index-form-panel flex'>
+            <Image src={nameSvg} className='input-item-icon' />
+            <AtInput
+              name='value'
+              title='姓名'
+              type='text'
+              placeholder='标准五个字'
+              value={this.state.name}
+              onChange={this.handleChange.bind(this,'name')}
+            />
           </View>
-          <View className='flex-between input-item'>
+          <View className='index-form-panel flex-between input-item'>
             <View className='flex-between'>
               <Image src={genderSvg} className='input-item-icon' />
               <Text>性别</Text>
@@ -119,14 +111,14 @@ export default class Index extends Component {
               <AtButton className='index-form-btn' type={this.state.gender === '女' ? 'primary' : ''} size='small' onClick={() => this.setState({gender: '女'})}>女</AtButton>
             </View>
           </View>
-          <View className='flex-between input-item' onClick={() => this.setState({dateModalshow: true})}>
+          <View className='index-form-panel flex-between input-item' onClick={() => this.setState({dateModalshow: true})}>
             <View className='flex-between'>
               <Image src={calenderSvg} className='input-item-icon' />
               <View>出生日期</View>
             </View>
             <View>{this.state.birthday || '请选择出生日期'}</View>
           </View>
-          <View className='flex-between input-item'>
+          <View className='index-form-panel flex-between input-item'>
             <View className='flex-between'>
               <Image src={timeSvg} className='input-item-icon' />
               <View>出生时间</View>
@@ -135,7 +127,7 @@ export default class Index extends Component {
               <View>{this.state.time || '请选择出生时间'}</View>
             </Picker>
           </View>
-          <View className='flex-between input-item'>
+          <View className='index-form-panel flex-between input-item'>
             <View className='flex-between'>
               <Image src={addressSvg} className='input-item-icon' />
               <View>出生地区</View>
